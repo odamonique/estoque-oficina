@@ -8,12 +8,20 @@ require('./db/database');
 
 const authRoutes = require('./routes/auth');
 const auth = require('./middlewares/auth');
+const fornecedorRoutes = require('./routes/fornecedores');
+const homeRoutes = require('./routes/home');
 
 const app = express();
 
+//EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//Arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Sessão para login
 app.use(session({
@@ -22,19 +30,10 @@ app.use(session({
   saveUninitialized: false
 }));
 
+//Rotas 
 app.use('/', authRoutes);
-
-//EJS
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-//Arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
-
-//Rota teste
-app.get('/', auth, (req, res) => {
-  res.render('index');
-});
+app.use('/', homeRoutes);
+app.use('/fornecedores', fornecedorRoutes);
 
 //Servidor
 const PORT = 3001;

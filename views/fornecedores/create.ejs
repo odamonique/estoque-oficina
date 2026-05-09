@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Fornecedor</title>
+</head>
+<body>
+    <h1>Novo Fornecedor</h1>
+    
+
+    <form method="POST" action="/fornecedores">
+
+        <input type="text" name="razao_social" placeholder="Razão Social" required>
+        <br><br>
+
+        <input type="text" name="nome_fantasia" placeholder="Nome Fantasia">
+        <br><br>
+
+        <input type="text" name="cnpj" placeholder="CNPJ" required>
+        <br><br>
+
+        <input type="text" name="endereco" placeholder="Endereço">
+        <br><br>
+
+        <input type="text" name="telefone" placeholder="Telefone" required>
+        <br><br>
+
+        <input type="email" name="email" placeholder="Email" required>
+        <br><br>
+
+        <input type="text" name="nome_contato" placeholder="Nome Contato" required>
+        <br><br>
+
+        <button type="submit">
+            Salvar
+        </button>
+
+    </form>
+    <br>
+    <a href="/fornecedores">Voltar</a>
+
+</body>
+</html>
