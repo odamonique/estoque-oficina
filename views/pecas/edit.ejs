@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Peças</title>
+</head>
+<body>
+    <h1>Editar Peças</h1>
+
+    <form method="POST" action="/pecas/update/<%= peca.id %>">
+
+        <input type="text" name="nome" value="<%= peca.nome %>" required>
+        <br><br>
+
+        <textarea name="descricao"><%= peca.descricao %></textarea>
+        <br><br>
+
+        <input type="text" name="marca" value="<%= peca.marca %>">
+        <br><br>
+
+        <input type="text" name="categoria" value="<%= peca.categoria %>">
+        <br><br>
+
+        <input type="number" name="quantidade" value="<%= peca.quantidade %>">
+        <br><br>
+
+        <input type="number" name="quantidade_minima" value="<%= peca.quantidade_minima %>">
+        <br><br>
+
+        <input type="number" step="0.01" name="preco_custo" value="<%= peca.preco_custo %>">
+        <br><br>
+
+        <input type="number" tep="0.01" name="preco_venda" value="<%= peca.preco_venda %>">
+        <br><br>
+
+        <select name="fornecedor_id">
+
+            <% fornecedores.forEach(fornecedor => { %>
+
+            <option
+                value="<%= fornecedor.id %>"
+
+                <%= fornecedor.id === peca.fornecedor_id
+                ? 'selected'
+                : ''
+                %>
+            >
+                <%= fornecedor.nome_fantasia %>
+            </option>
+
+            <% }) %>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">Atualizar</button>
+
+    </form>
+    <br>
+
+    <a href="/pecas">Voltar</a>
+
+</body>
+</html>

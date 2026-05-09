@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peças</title>
+</head>
+<body>
+    <h1>Peças</h1>
+
+    <a href="/pecas/nova">Nova Peça</a>
+    <hr>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Preço de Custo</th>
+            <th>Preço de Venda</th>
+            <th>Fornecedor</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+
+        <% pecas.forEach(peca => { %>
+
+            <tr>
+
+                <td><%= peca.id %></td>
+                <td><%= peca.nome %></td>
+                <td><%= peca.quantidade %></td>
+                <td><%= peca.preco_custo %></td>
+                <td><%= peca.preco_venda %></td>
+                <td>
+                    <%= peca.fornecedor_nome || 'Sem fornecedor' %>
+                </td>
+                <td>
+
+                    <% if (peca.quantidade <= peca.quantidade_minima) { %>
+
+                    <span style="color:red;">Estoque baixo</span>
+
+                    <% } else { %>
+
+                    <span style="color:green;">OK</span>
+
+                    <% } %>
+
+                </td>
+                <td>
+
+                    <a href="/pecas/editar/<%= peca.id %>">Editar </a>
+                    <br>
+                    <a href="/pecas/delete/<%= peca.id %>">Excluir</a>
+
+                </td>
+            </tr>
+
+        <% }) %>
+
+    </table>
+    <br>
+
+    <a href="/">Voltar</a>
+
+</body>
+</html>

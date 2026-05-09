@@ -10,6 +10,7 @@ const authRoutes = require('./routes/auth');
 const auth = require('./middlewares/auth');
 const fornecedorRoutes = require('./routes/fornecedores');
 const homeRoutes = require('./routes/home');
+const pecaRoutes = require('./routes/pecas');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(session({
 app.use('/', authRoutes);
 app.use('/', homeRoutes);
 app.use('/fornecedores', fornecedorRoutes);
+app.use('/pecas', pecaRoutes);
 
 //Servidor
 const PORT = 3001;
