@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fornecedores</title>
-</head>
-<body>
-    <a href="/fornecedores/novo">Novo Fornecedor</a>
+<%- include('../partials/header', {
+  title: 'Título'
+}) %>
+
+    <a href="/fornecedores/novo"> Novo Fornecedor </a>
     <hr>
     <table border="1" cellpadding="10">
         <tr>
@@ -46,5 +42,5 @@
     </table>
     <br>
     <a href="/">Voltar</a>
-</body>
-</html>
+
+<%- include('../partials/footer') %>

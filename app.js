@@ -32,6 +32,14 @@ app.use(session({
   saveUninitialized: false
 }));
 
+//Disponibiliza usuário em todas as views
+app.use((req, res, next) => {
+
+  res.locals.user = req.session.user || null;
+
+  next();
+});
+
 //Rotas 
 app.use('/', authRoutes);
 app.use('/', homeRoutes);

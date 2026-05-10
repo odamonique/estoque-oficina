@@ -1,33 +1,80 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de estoque</title>
-</head>
-<body>
-    <h1>Sistema de Estoque</h1>
+<%- include('partials/header', {
+  title: 'Dashboard'
+}) %>
 
-    <h4>Bem vindo, <%= user.nome %></h4>
+<h1 class="mb-4">
+  Dashboard
+</h1>
 
-    <ul>
-        <li>
-            <a href="/fornecedores">Gerenciar Fornecedores</a>
-        </li>
+<div class="card p-4">
 
-        <li>
-            <a href="/pecas">Gerenciar Peças</a>
-        </li>
+  <h4>
+    Bem-vindo, <%= user.nome %>
+  </h4>
 
-        <% if (user.cargo === 'gerente') { %>
-            <li>
-                <a href="/usuarios">Gerenciar Usuários</a>
-            </li>
-        <% } %>
+  <p>
+    Cargo: <strong><%= user.cargo %></strong>
+  </p>
 
-        <li>
-            <a href="/logout">Sair</a>
-        </li>
-    </ul>
-</body>
-</html>
+</div>
+
+<div class="row mt-4">
+
+  <div class="col-md-4">
+
+    <div class="card p-3">
+
+      <h5>Fornecedores</h5>
+
+      <a
+        href="/fornecedores"
+        class="btn btn-primary"
+      >
+        Acessar
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="card p-3">
+
+      <h5>Peças</h5>
+
+      <a
+        href="/pecas"
+        class="btn btn-primary"
+      >
+        Acessar
+      </a>
+
+    </div>
+
+  </div>
+
+  <% if (user.cargo === 'gerente') { %>
+
+    <div class="col-md-4">
+
+      <div class="card p-3">
+
+        <h5>Usuários</h5>
+
+        <a
+          href="/usuarios"
+          class="btn btn-primary"
+        >
+          Acessar
+        </a>
+
+      </div>
+
+    </div>
+
+  <% } %>
+
+</div>
+
+<%- include('partials/footer') %>
