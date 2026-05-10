@@ -32,7 +32,7 @@ exports.login = async (req, res) => {
     req.session.user = {
       id: user.id,
       nome: user.nome,
-      role: user.role
+      cargo: user.cargo
     };
 
     res.redirect('/');

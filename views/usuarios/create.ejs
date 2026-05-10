@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Usuário</title>
+</head>
+<body>
+    <h1>Novo Usuário</h1>
+
+    <form method="POST" action="/usuarios">
+
+        <input type="text" name="nome" placeholder="Nome" required>
+        <br><br>
+
+        <input type="text" name="username" placeholder="Usuário" required>
+        <br><br>
+
+        <input type="password" name="senha" placeholder="Senha" required>
+        <br><br>
+
+        <select name="cargo">
+            <option value="funcionario">Funcionário</option>
+            <option value="gerente">Gerente</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Salvar</button>
+
+    </form>
+
+    <br>
+
+    <a href="/usuarios">Voltar</a>
+
+</body>
+</html>

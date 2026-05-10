@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+</head>
+<body>
+    <h1>Usuários</h1>
+
+    <a href="usuarios/novo">Novo Usuário</a>
+    <hr>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Usuário</th>
+            <th>Cargo</th>
+            <th>Ações</th>
+        </tr>
+
+        <% usuarios.forEach(usuario => { %>
+
+            <tr>
+                <td><%= usuario.id %></td>
+                <td><%= usuario.nome %></td>
+                <td><%= usuario.username %></td>
+                <td><%= usuario.cargo %></td>
+                <td>
+                    <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
+                    <a href="/usuarios/delete/<%= usuario.id %>">Excluir</a>
+                </td>
+            </tr>
+
+        <% }) %>
+
+    </table>
+
+    <br>
+
+    <a href="/">Voltar</a>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+</head>
+<body>
+    <h1>Editar Usuário</h1>
+
+    <form method="POST" action="/usuarios/update/<%= usuario.id %>">
+
+        <input type="text" name="nome" value="<%= usuario.nome %>" required>
+        <br><br>
+
+        <input type="text" name="username" value="<%= usuario.username %>" required>
+        <br><br>
+
+        <input type="password" name="senha" placeholder="Nova senha (opcional)">
+        <br><br>
+
+        <select name="cargo">
+
+            <option
+            value="funcionario"
+            <%= usuario.cargo === 'funcionario'
+                ? 'selected'
+                : ''
+            %>>Funcionário
+            </option>
+
+            <option
+            value="gerente"
+            <%= usuario.cargo === 'gerente'
+                ? 'selected'
+                : ''
+            %>>Gerente
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">Atualizar</button>
+
+    </form>
+
+    <br>
+
+    <a href="/usuarios">Voltar</a>
+
+</body>
+</html>
