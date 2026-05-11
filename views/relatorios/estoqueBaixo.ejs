@@ -1,0 +1,27 @@
+<%- include('../partials/header', {
+  title: 'Estoque Baixo'
+}) %>
+
+<h1>Estoque Baixo</h1>
+
+<table class="table table-bordered table-danger">
+
+  <tr>
+    <th>Peça</th>
+    <th>Quantidade</th>
+    <th>Mínimo</th>
+  </tr>
+
+  <% pecas.forEach(peca => { %>
+
+    <tr>
+      <td><%= peca.nome %></td>
+      <td><%= peca.quantidade %></td>
+      <td><%= peca.quantidade_minima %></td>
+    </tr>
+
+  <% }) %>
+
+</table>
+
+<%- include('../partials/footer') %>

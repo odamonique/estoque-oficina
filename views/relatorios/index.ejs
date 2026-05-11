@@ -1,0 +1,27 @@
+<%- include('../partials/header', {
+  title: 'Relatórios'
+}) %>
+
+<h1>Relatório Geral</h1>
+
+<table class="table table-bordered">
+
+  <tr>
+    <th>Peça</th>
+    <th>Quantidade</th>
+    <th>Preço Venda</th>
+  </tr>
+
+  <% pecas.forEach(peca => { %>
+
+    <tr>
+      <td><%= peca.nome %></td>
+      <td><%= peca.quantidade %></td>
+      <td>R$ <%= peca.preco_venda %></td>
+    </tr>
+
+  <% }) %>
+
+</table>
+
+<%- include('../partials/footer') %>

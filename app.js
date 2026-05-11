@@ -12,6 +12,7 @@ const fornecedorRoutes = require('./routes/fornecedores');
 const homeRoutes = require('./routes/home');
 const pecaRoutes = require('./routes/pecas');
 const usuarioRoutes = require('./routes/usuarios');
+const relatorioRoutes = require('./routes/relatorios');
 
 const app = express();
 
@@ -46,6 +47,7 @@ app.use('/', homeRoutes);
 app.use('/fornecedores', fornecedorRoutes);
 app.use('/pecas', pecaRoutes);
 app.use('/usuarios', usuarioRoutes);
+app.use('/relatorios', relatorioRoutes);
 
 //Servidor
 const PORT = 3001;

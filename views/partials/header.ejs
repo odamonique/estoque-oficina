@@ -14,7 +14,6 @@
         <a class="navbar-brand" href="/">Estoque Oficina</a>
 
         <div>
-
         <a class="btn btn-outline-light btn-sm" href="/">Home</a>
 
         <a class="btn btn-outline-light btn-sm" href="/fornecedores">Fornecedores</a>
@@ -24,6 +23,22 @@
         <% if (user && user.cargo === 'gerente') { %>
 
             <a class="btn btn-outline-light btn-sm" href="/usuarios">Usuários</a>
+            
+            <div class="dropdown d-inline">
+                <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Relatórios
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="/relatorios">Relatório Geral</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="/relatorios/estoque-baixo">Estoque Baixo</a>
+                    </li>
+                </ul>
+            </div>
 
         <% } %>
 
