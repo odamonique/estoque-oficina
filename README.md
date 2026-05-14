@@ -86,6 +86,53 @@ db/database.sqlite
 
 ---
 
+## Modelo de Dados
+
+O sistema segue o seguinte modelo relacional:
+
+```mermaid
+classDiagram
+
+class Usuario {
+  int id
+  string nome
+  string username
+  string senha
+  string cargo
+}
+
+class Fornecedor {
+  int id
+  string razao_social
+  string nome_fantasia
+  string cnpj
+  string endereco
+  string telefone
+  string email
+  string nome_contato
+  datetime data_cadastro
+}
+
+class Peca {
+  int id
+  string nome
+  string descricao
+  string marca
+  string categoria
+  int quantidade
+  int quantidade_minima
+  float preco_custo
+  float preco_venda
+  int fornecedor_id
+  datetime data_cadastro
+  datetime data_atualizacao
+}
+
+Fornecedor "1" --> "many" Peca
+```
+
+---
+
 # Instalação do Projeto
 
 ## 1. Clonar repositório
@@ -235,3 +282,4 @@ Este projeto foi desenvolvido com foco acadêmico, priorizando:
 # Autor
 
 Monique Yabu Recaldi
+
